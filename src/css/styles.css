@@ -22,17 +22,22 @@
       overflow-x: hidden;
     }
 
+    strong {
+      font-weight: 600;
+    }
+
     .content-wrapper {
       margin: 0 auto;
       padding: 0 var(--gap);
       width: 100%;
       max-width: 1200px;
-      height: inherit;
     }
 
     header .content-wrapper {
-      display: grid;
-      grid-template-columns: 6rem auto 6rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .card {
@@ -47,24 +52,22 @@
     img {
       margin: 0 auto;
     }
+    #logo {
+      margin: 0.5rem;
+      width: 5rem;
+    }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 850px) {
+    #logo {
+      width: 8rem;
+    }
   }
 }
 
 @layer components {
-  #logo {
-    width: var(--header-height);
-    padding: 0.5rem;
-  }
-
-  header button {
-    grid-column: 3;
-  }
-
   button {
-    padding: var(--gap);
+    padding: var(--small-gap);
   }
 
   button,
@@ -76,24 +79,22 @@
   }
 
   article p,
-  article h2,
   article blockquote,
   article form {
-    margin: var(--big-gap) 0;
-  }
-
-  strong {
-    font-weight: 600;
-  }
-
-  footer h4 {
-    text-align: center;
     margin-bottom: var(--big-gap);
   }
 
-  footer button {
-    width: 100%;
-    margin: var(--big-gap) 0;
+  h2 {
+    margin: var(--big-gap) 0 var(--small-gap) 0;
+    font-weight: 500;
+  }
+
+  #contact-h2 {
+    text-align: center;
+  }
+
+  form {
+    padding: 0 var(--gap) 0 var(--gap);
   }
 
   form textarea {
@@ -110,6 +111,18 @@
   form label {
     width: 100%;
   }
+
+  form button {
+    display: block;
+    width: 10rem;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  footer ul {
+    text-align: center;
+    margin-bottom: var(--big-gap);
+  }
 }
 
 @layer theme {
@@ -121,7 +134,8 @@
     }
 
     :root {
-      font-family: Montserrat, Georgia, "Times New Roman", Times, serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
       scroll-behavior: smooth;
     }
 
@@ -130,9 +144,22 @@
     h3,
     h4,
     h5,
-    h6,
-    #logo p:first-child {
+    h6 {
       font-size: clamp(2.2rem, 2vw + 1.25rem, 2.7rem);
+    }
+
+    form input,
+    form textarea {
+      background-color: #dfeefa;
+    }
+
+    button {
+      background-color: #dfeefa;
+      border-radius: 1.5rem;
+    }
+
+    button:hover {
+      background-color: #6186a2;
     }
   }
 }
