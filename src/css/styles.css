@@ -1,0 +1,138 @@
+@layer reset, layout, components, theme;
+
+@import "reset.css" layer(reset);
+
+@layer layout {
+  @media (min-width: 0) {
+    * {
+      /* TIME */
+      --def-transition-duration: 0.15s;
+
+      /* LENGTH */
+      --small-gap: clamp(0.5rem, 1.5vw, 1.1rem);
+      --gap: clamp(0.8rem, 1.7vw, 2.1rem);
+      --big-gap: clamp(1.8rem, calc(1.7vw + 1rem), 3.1rem);
+      --bigger-gap: calc(var(--header-height) / 2);
+      --header-height: clamp(8rem, calc(5vw + 4rem), 11rem);
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .content-wrapper {
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      width: 100%;
+      max-width: 1200px;
+      height: inherit;
+    }
+
+    header .content-wrapper {
+      display: grid;
+      grid-template-columns: 6rem auto 6rem;
+    }
+
+    .card {
+      margin-bottom: var(--bigger-gap);
+    }
+
+    .card:last-child,
+    #client-exp {
+      margin-bottom: 0;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+  }
+}
+
+@layer components {
+  #logo {
+    width: var(--header-height);
+    padding: 0.5rem;
+  }
+
+  header button {
+    grid-column: 3;
+  }
+
+  button {
+    padding: var(--gap);
+  }
+
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input::file-selector-button {
+    cursor: pointer;
+  }
+
+  article p,
+  article h2,
+  article blockquote,
+  article form {
+    margin: var(--big-gap) 0;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  footer h4 {
+    text-align: center;
+    margin-bottom: var(--big-gap);
+  }
+
+  footer button {
+    width: 100%;
+    margin: var(--big-gap) 0;
+  }
+
+  form textarea {
+    height: calc(2 * var(--header-height));
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    margin-bottom: var(--big-gap);
+    min-height: 3rem;
+  }
+
+  form label {
+    width: 100%;
+  }
+}
+
+@layer theme {
+  @layer theme {
+    * {
+      /* COLOR */
+      --text-color: #181a1b;
+      color: var(--text-color);
+    }
+
+    :root {
+      font-family: Montserrat, Georgia, "Times New Roman", Times, serif;
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    #logo p:first-child {
+      font-size: clamp(2.2rem, 2vw + 1.25rem, 2.7rem);
+    }
+  }
+}
