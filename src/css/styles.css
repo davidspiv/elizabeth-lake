@@ -1,8 +1,8 @@
-@layer reset, layout, components, theme;
+@layer reset, base, components, theme;
 
 @import "reset.css" layer(reset);
 
-@layer layout {
+@layer base {
   @media (min-width: 0) {
     * {
       /* TIME */
@@ -26,6 +26,19 @@
       font-weight: 600;
     }
 
+    img {
+      max-inline-size: 100%;
+      block-size: auto;
+      aspect-ratio: 1.8/1;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+
+    #logo {
+      aspect-ratio: 1;
+      max-width: 5rem;
+    }
+
     .content-wrapper {
       margin: 0 auto;
       padding: 0 var(--gap);
@@ -47,20 +60,6 @@
     .card:last-child,
     #client-exp {
       margin-bottom: 0;
-    }
-
-    img {
-      margin: 0 auto;
-    }
-    #logo {
-      margin: 0.5rem;
-      width: 5rem;
-    }
-  }
-
-  @media (min-width: 850px) {
-    #logo {
-      width: 8rem;
     }
   }
 }
